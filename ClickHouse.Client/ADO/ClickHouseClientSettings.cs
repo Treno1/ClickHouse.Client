@@ -1,8 +1,8 @@
 namespace ClickHouse.Client.ADO
 {
-    public class ClickHouseConnectionSettings
+    public class ClickHouseClientSettings
     {
-        public ClickHouseConnectionSettings(string connectionString)
+        public ClickHouseClientSettings(string connectionString)
         {
             ConnectionString = connectionString;
         }

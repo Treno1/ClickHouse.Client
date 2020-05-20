@@ -7,11 +7,11 @@ namespace ClickHouse.Client.Utility
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddClickHouseConnection(this IServiceCollection services, string connectionString)
+        public static IServiceCollection AddClickHouseClient(this IServiceCollection services, string connectionString)
         {
             services
-                .AddSingleton(sp => new ClickHouseConnectionSettings(connectionString))
-                .AddHttpClient<ClickHouseConnection>()
+                .AddSingleton(sp => new ClickHouseClientSettings(connectionString))
+                .AddHttpClient<ClickHouseClient>()
                 .ConfigurePrimaryHttpMessageHandler(() => 
                     new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate });
 
