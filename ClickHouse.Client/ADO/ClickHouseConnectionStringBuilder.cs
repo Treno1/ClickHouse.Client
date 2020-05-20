@@ -9,6 +9,11 @@ namespace ClickHouse.Client.ADO
         public ClickHouseConnectionStringBuilder()
         {
         }
+        
+        public ClickHouseConnectionStringBuilder(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
 
         public string Database
         {

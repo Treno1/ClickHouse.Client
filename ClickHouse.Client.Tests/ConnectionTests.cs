@@ -18,7 +18,7 @@ namespace ClickHouse.Client.Tests
         public void ShouldCreateConnectionWithProvidedHttpClient()
         {
             using var httpClient = new HttpClient();
-            using var connection = new ClickHouseConnection(TestUtilities.GetConnectionStringBuilder().ToString(), httpClient);
+            using var connection = new ClickHouseConnection(httpClient, new ClickHouseConnectionSettings(TestUtilities.GetConnectionStringBuilder().ToString()));
         }
 
         [Test]

@@ -30,9 +30,11 @@ namespace ClickHouse.Client.ADO
         private TimeSpan timeout;
         private Uri serverUri;
 
-        public ClickHouseConnection()
-            : this(string.Empty)
+        public ClickHouseConnection(HttpClient client, ClickHouseConnectionSettings connectionSettings)
         {
+            ConnectionString = connectionSettings.ConnectionString;
+            client.Timeout = timeout;
+            httpClient = client;
         }
 
         public ClickHouseConnection(string connectionString)
@@ -44,12 +46,6 @@ namespace ClickHouse.Client.ADO
                 Timeout = timeout,
             };
             // Connection string has to be initialized after HttpClient, as it may set HttpClient.Timeout
-        }
-
-        public ClickHouseConnection(string connectionString, HttpClient httpClient)
-        {
-            ConnectionString = connectionString;
-            this.httpClient = httpClient;
         }
 
         /// <summary>
