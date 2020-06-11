@@ -32,6 +32,7 @@ namespace ClickHouse.Client.ADO
         public ClickHouseConnection()
             : this(string.Empty)
         {
+            
         }
 
         public ClickHouseConnection(string connectionString)
@@ -49,6 +50,7 @@ namespace ClickHouse.Client.ADO
         {
             ConnectionString = connectionString;
             this.httpClient = httpClient;
+            this.httpClient.Timeout = timeout;
         }
 
         /// <summary>
